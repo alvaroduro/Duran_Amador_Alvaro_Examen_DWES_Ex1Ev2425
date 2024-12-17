@@ -1,0 +1,26 @@
+/* Hoja Estilos para Examen 1 Ev DWES */
+body {
+  font-size: 16px;
+  /*https://uigradients.com/#Vanusa página para fondo pantalla degradado*/
+  background: #ffefba;
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #ffefba
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #ffefba
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: "Lato", sans-serif;
+  letter-spacing: -1px;
+  padding: 10px 0;
+}
+
+.formulario {
+  width: 60%; /* Ocupa el 50% del ancho */
+  max-width: 600px; /* Máximo ancho para pantallas grandes */
+  padding: 20px; /* Espaciado interno */
+  margin: auto;
+}
