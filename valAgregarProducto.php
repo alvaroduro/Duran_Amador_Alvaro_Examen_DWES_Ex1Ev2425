@@ -57,7 +57,8 @@ if (isset($_POST["anadirProducto"])) { //Si se pulsa en Añadir Producto
     //Campo Nombre
     if (
         !empty($_POST["nombre"]) &&
-        (strlen($_POST["nombre"]) < 30)
+        (strlen($_POST["nombre"]) < 30 && 
+        (!preg_match("/[0-9]/", $_POST["nombre"])))
     ) {
         //Satinizamos
         $nombre = htmlspecialchars(trim($_POST['nombre']));
@@ -69,7 +70,8 @@ if (isset($_POST["anadirProducto"])) { //Si se pulsa en Añadir Producto
     //Campo Categoría
     if (
         !empty($_POST["categoria"]) &&
-        (strlen($_POST["categoria"]) < 20)
+        (strlen($_POST["categoria"]) < 20 &&
+        (!preg_match("/[0-9]/", $_POST["categoria"])))
     ) {
         //Satinizamos
         $categoria = htmlspecialchars(trim($_POST['categoria']));
@@ -105,7 +107,7 @@ if (isset($_POST["anadirProducto"])) { //Si se pulsa en Añadir Producto
 
     //Campo STOCK
     if (
-        isset($_POST["stock"]) && is_numeric($_POST["stock"]) && $_POST["stock"] >= 0
+        isset($_POST["stock"]) && is_numeric($_POST["stock"]) && ($_POST["stock"] >= 0)
     ) {
         // Sanitizamos el valor de stock
         $stock = intval ($_POST['stock']);

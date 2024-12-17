@@ -119,7 +119,7 @@ if (isset($_POST["actualizar"]) && (count($errores) == 0)) {
             if ($query) {
                 // Registramos en la tabla logs el registro del admin
                 /*registrarActividad($conexion, "actualizacion", "libro actualizado por " . $nombre);*/
-                $msgresultado = '<div class="alert alert-success">' .
+                echo '<div class="alert alert-success">' .
                     "El producto se actualizó correctamente en la Base de Datos!! :)" . '</div>';
             } else {
                 $msgresultado = '<div class="alert alert-danger">' .
@@ -135,10 +135,11 @@ if (isset($_POST["actualizar"]) && (count($errores) == 0)) {
     //Damos valores a los campos
     $valnombre = $nuevonombre;
     $valcategoria = $nuevocategoria;
-    $valp = $nuevop;
+    $valpvp = $nuevopvp;
     $valstock = $nuevostock;
-    $valimagen = $nuevoprecio;
-    $valportada = $nuevaimagen;
+    $valimagen = $nuevaimagen;
+    $valobservaciones = $nuevoobservaciones;
+
 } else {
     //----------------Si no se pulsa en actualizar nos traemos los datos--------------------------------
     if (isset($_GET['codprod']) && (is_numeric($_GET['codprod']))) { //Si tenemos el id y es número
@@ -230,7 +231,7 @@ if (isset($_POST["actualizar"]) && (count($errores) == 0)) {
         <div class="form-group mb-3">
             <label for="stock" class="form-label">STOCK</label>
             <!--Mostramos el registro guardado anteriormente en caso de haber uno-->
-            <input type="number" step="0.01" name="pvp" id="stock" class="form-control"
+            <input type="number" step="0.01" name="stock" id="stock" class="form-control"
                 value="<?php
                         echo $valstock; ?>">
 

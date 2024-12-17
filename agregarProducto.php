@@ -1,7 +1,7 @@
 <!--Agregar Libro-->
 <?php require 'include/header.php'; ?>
 <?php require_once 'config.php'; ?>
-<?php require 'valActualizarProducto.php';?>
+<?php require 'valAgregarProducto.php';?>
 <?php require 'verificarCampo.php'; ?>
 
 <body>
@@ -104,8 +104,7 @@
 
                     // Supervisamos si se ha realizado correctamente
                     if ($query) {
-                        // Registramos en la tabla logs alta producto del admin
-                        /*registrarActividad($conexion, "alta", "libro " . $titulo . " dado de alta por " . $nombre);*/
+                        registrarActividad($conexion, "alta", $nombre);
                         $msgresultado = '<div class="alert alert-success">' .
                             "El producto se registró correctamente en la Base de Datos!! :)" . '</div>';
                     } else {

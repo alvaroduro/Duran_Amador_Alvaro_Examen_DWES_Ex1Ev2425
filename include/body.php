@@ -1,5 +1,6 @@
 <!--Generamos la consulta para traernos los datos de la base datos-->
 <!--Productos (codprod, nombre, categoria, pvp, stock, imagen, observaciones)-->
+<?php require 'delproducto.php'; ?>
 <?php
 
 try {
@@ -35,6 +36,7 @@ try {
     <div class="container">
     <!--Agregar Producto-->
     <a class="btn btn-info mx-5" href="agregarProducto.php">Agregar Producto</a>
+    <a class="btn btn-info mx-5" href="generarPdf.php">Generar Lista Prodcuto PDF</a>
     </div>
     <!--Listar Productos-->
     <div class="container my-3">
@@ -58,8 +60,11 @@ try {
                     <!--Recogemos resultados Recorremos Array-->
                     <?php while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) { //var_dump($fila)?>
                         <!--<td><?= $fila['codprod'] ?></td>-->
+                        <?php $codp = $fila['codprod']; ?>
                         <td><?= $fila['nombre'] ?></td>
+                        <?php $nombrep = $fila['nombre']; ?>
                         <td><?= $fila['categoria'] ?></td>
+                        <?php $categoriap = $fila['categoria']; ?>
                         <td><?= $fila['pvp'] ?></td>
                         <td><?= $fila['stock'] ?></td>
                         <td><?php if ($fila['imagen'] != null) {
@@ -71,7 +76,12 @@ try {
                         <td><!--Editar Producto-->
                         <a class="btn btn-success" href="actProducto.php?codprod=<?php echo $fila['codprod']?>&nombre=<?php echo $fila['nombre']?>">Editar Producto</a></td>
                         <td><!--Eliminar Producto-->
-                        <a class="btn btn-danger" href="">Elimnar Producto</a></td>
+                        <td> <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalEliminar"
+                                            data-id="<?php echo htmlspecialchars($codp) ?>"
+                                            data-nombre="<?php echo htmlspecialchars($nombrep); ?>"
+                                            data-categoria="<?php echo htmlspecialchars($categoriap); ?>">
+                                            Eliminar
+                                        </button></td></td>
                 </tr>
                 <?php } ?>
             </tbody>

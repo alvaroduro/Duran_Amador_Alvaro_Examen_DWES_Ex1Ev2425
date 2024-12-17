@@ -52,7 +52,7 @@ function registrarActividad($conexion, $tipoActividad, $nombre)
         // Ejecutar la consulta con los valores
         $resultado->execute([
             ':tipoActividad' => $tipoActividad,
-            ':descripcion' => $nombre
+            ':nombre' => $nombre
         ]);
 
         echo "log añadido";
