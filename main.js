@@ -1,4 +1,4 @@
-/** Script .js para Examen 1 Ev DWES */
+/** Script .js para Examen 1 DWES */
 //Función para que nos muestre el año actual
 window.addEventListener("load", () => {
     const currentDate = new Date();
